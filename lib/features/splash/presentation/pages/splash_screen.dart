@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> _initializeApp() async {
     // Step 1: Initialize local storage & app configurations
-    await Future.delayed(const Duration(milliseconds: 500));
+    await Future.delayed(const Duration(minutes: 1));
     if (!mounted) return;
     setState(() {
       _progress = 0.30;
@@ -52,17 +52,14 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(milliseconds: 500));
     if (!mounted) return;
 
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const LoginScreen()),
-    );
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
   }
 
   @override
   Widget build(BuildContext context) {
     final l10n = S.of(context);
 
-    switch(_loadingState) {
+    switch (_loadingState) {
       case 1:
         _loadingLabel = l10n.splashLoadingState1;
         break;
@@ -81,7 +78,6 @@ class _SplashScreenState extends State<SplashScreen> {
     }
 
     return Scaffold(
-      backgroundColor: AppColors.darkGreen,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 32.0),
@@ -90,22 +86,9 @@ class _SplashScreenState extends State<SplashScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 250),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.asset(
-                  AppAssets.appIconTransparent,
-                  color: AppColors.white,
-                  height: 128,
-                  width: 128,
-                  fit: BoxFit.contain,
-                  semanticLabel: l10n.appName,
-                ),
-              ),
+              Image.asset(AppAssets.appIconDotNoBG, height: 172, width: 172, fit: BoxFit.contain, semanticLabel: l10n.appName),
               const Spacer(),
-              LoadingWidget(
-                loadingState: _progress,
-                loadingLabel: _loadingLabel,
-              ),
+              LoadingWidget(loadingState: _progress, loadingLabel: _loadingLabel),
             ],
           ),
         ),

@@ -53,24 +53,18 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.14.4
+  flutter_lints: ^6.0.0
 
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/icon/app_icon.png" # الصورة الأساسية بحجم 1024x1024
+  image_path: "assets/icon/dot/logo_dot_green_bg.png" # الصورة الأساسية بحجم 1024x1024
 
   remove_alpha_ios: true
 
   # إعدادات Android 8.0+ Adaptive Icons (Material Design 3)
-  adaptive_icon_background: "#ffffff"
-  adaptive_icon_foreground: "assets/icon/app_icon_transparent.png"
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
-  flutter_lints: ^6.0.0
+  adaptive_icon_background: "#1b6455"
+  adaptive_icon_foreground: "assets/icon/dot/logo_dot_no_bg.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -85,8 +79,9 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/icon/app_icon.png
-    - assets/icon/app_icon_transparent.png
+    - assets/icon/dot/logo_dot_no_bg.png
+    - assets/icon/text/logo_text_no_bg.png
+    - assets/icon/dot/logo_dot_white_w_colored_dot_no_bg.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 

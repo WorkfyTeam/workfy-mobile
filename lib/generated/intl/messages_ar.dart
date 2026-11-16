@@ -20,9 +20,9 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
-  static String m0(step, finalStep) => "الخطوة ${step} من ${finalStep}";
+  static String m0(int step, int finalStep) => "الخطوة ${step} من ${finalStep}";
 
-  static String m1(userName) => "أهلاً بعودتك، ${userName}!";
+  static String m1(String userName) => "أهلاً بعودتك، ${userName}!";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{

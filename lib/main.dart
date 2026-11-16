@@ -50,7 +50,7 @@ class _WorkBridgeMaterialApp extends StatelessWidget {
 
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: themeMode,
+      themeMode: ThemeMode.light, // Change to use 'themeMode' to follow system and settings
 
       locale: currentLocale,
       supportedLocales: S.delegate.supportedLocales,

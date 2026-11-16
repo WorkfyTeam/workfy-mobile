@@ -1,4 +1,5 @@
 abstract class AppAssets {
-  static const String appIcon = 'assets/icon/app_icon.png';
-  static const String appIconTransparent = 'assets/icon/app_icon_transparent.png';
+  static const String appIconDotNoBG = 'assets/icon/dot/logo_dot_no_bg.png';
+  static const String appIconWhiteWColoredDotNoBG = 'assets/icon/dot/logo_dot_white_w_colored_dot_no_bg.png';
+  static const String appIconTextNoBG = 'assets/icon/text/logo_text_no_bg.png';
 }

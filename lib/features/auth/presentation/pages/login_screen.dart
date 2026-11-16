@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 150.0),
+          padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 100.0),
           child: Form(
             key: _formKey,
             child: Column(
@@ -105,8 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 // Logo
-                Text("W", style: textTheme.displayLarge?.copyWith(color: colors.primary, fontWeight: FontWeight(900))),
-                Text("bridge", style: textTheme.displaySmall),
+                Image.asset(AppAssets.appIconTextNoBG, height: 172, width: 172, fit: BoxFit.contain, semanticLabel: l10n.appName),
 
                 // Form Fields
                 const SizedBox(height: 60),

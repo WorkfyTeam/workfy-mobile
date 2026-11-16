@@ -49,7 +49,7 @@ class LoadingWidget extends StatelessWidget {
             tween: Tween<double>(begin: 0.0, end: progressValue),
             duration: const Duration(milliseconds: 350),
             curve: Curves.easeInOut,
-            builder: (_, value, __) => buildBar(value),
+            builder: (_, value, _) => buildBar(value),
           ),
         ),
         if (loadingLabel.isNotEmpty) ...[

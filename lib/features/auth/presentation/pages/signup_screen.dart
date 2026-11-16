@@ -128,7 +128,7 @@ class _SignupScreenState extends State<SignupScreen> {
         backgroundColor: colors.surface,
         elevation: 0,
         leading: Image.asset(
-          AppAssets.appIconTransparent,
+          AppAssets.appIconTextNoBG,
           semanticLabel: l10n.appName,
         ),
         title: Wrap(
