@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'package:workbridge/core/localization/locale_cubit.dart';
@@ -54,7 +53,7 @@ class _WorkBridgeMaterialApp extends StatelessWidget {
 
       locale: currentLocale,
       supportedLocales: S.delegate.supportedLocales,
-      localizationsDelegates: const [S.delegate, GlobalMaterialLocalizations.delegate, GlobalWidgetsLocalizations.delegate, GlobalCupertinoLocalizations.delegate],
+      localizationsDelegates: [S.delegate, GlobalMaterialLocalizations.delegate],
 
       builder: (context, child) {
         final brightness = themeMode == ThemeMode.system

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 abstract final class AppColors {
   // 1. Core Brand Palette (6 Essential Colors)
