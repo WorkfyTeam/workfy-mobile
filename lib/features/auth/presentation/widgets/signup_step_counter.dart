@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:workbridge/core/theme/theme_extension.dart';
 import 'package:workbridge/generated/l10n.dart';
 

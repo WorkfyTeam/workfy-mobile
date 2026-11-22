@@ -49,6 +49,8 @@ dependencies:
   hive_flutter: ^1.1.0
   google_fonts: ^9.0.0
 
+  material_ui: ^1.11.1
+  cupertino_ui: ^1.1.7
 dev_dependencies:
   flutter_test:
     sdk: flutter

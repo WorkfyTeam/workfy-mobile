@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:workbridge/core/utils/app_assets.dart';
 import 'package:workbridge/features/auth/presentation/pages/login_screen.dart';
 import 'package:workbridge/features/splash/presentation/widgets/loading_widget.dart';
-import 'package:workbridge/core/theme/app_colors.dart';
 import 'package:workbridge/generated/l10n.dart';
 
 class SplashScreen extends StatefulWidget {
