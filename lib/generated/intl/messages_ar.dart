@@ -20,18 +20,20 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
-  static String m0(int step, int finalStep) => "الخطوة ${step} من ${finalStep}";
+  static String m0(step, finalStep) => "الخطوة ${step} من ${finalStep}";
 
-  static String m1(String userName) => "أهلاً بعودتك، ${userName}!";
+  static String m1(userName) => "أهلاً بعودتك، ${userName}!";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "appName": MessageLookupByLibrary.simpleMessage("WorkBridge"),
     "appTitle": MessageLookupByLibrary.simpleMessage("منصة WorkBridge"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
+    "choosePath": MessageLookupByLibrary.simpleMessage("اختر مسارك"),
     "confirmPasswordField": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
     ),
+    "continueKeyword": MessageLookupByLibrary.simpleMessage("متابعة"),
     "continueLoginWithOptions": MessageLookupByLibrary.simpleMessage(
       "أو الإستمرار من خلال",
     ),
@@ -50,15 +52,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterYourPassword": MessageLookupByLibrary.simpleMessage(
       "أدخل كلمة المرور",
     ),
+    "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "errorConfirmPasswordField": MessageLookupByLibrary.simpleMessage(
-      "يجب أن تكون كلمة المرور صحيحة",
+      "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+    ),
+    "errorCouldNotConnect": MessageLookupByLibrary.simpleMessage(
+      "خطأ: تعذّر الاتصال",
     ),
     "errorFieldIsEmpty": MessageLookupByLibrary.simpleMessage(
       "لا يمكن ترك هذا الحقل فارغًا",
     ),
+    "errorNameField": MessageLookupByLibrary.simpleMessage("الاسم غير صالح"),
     "errorPhoneOrEmailField": MessageLookupByLibrary.simpleMessage(
       "أدخل رقم هاتف أو بريدًا إلكترونيًا صالحًا",
     ),
+    "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
     "haveLoginAccount": MessageLookupByLibrary.simpleMessage(
       "هل أنت مسجّل بالفعل؟",
@@ -66,7 +74,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "haveNoLoginAccount": MessageLookupByLibrary.simpleMessage(
       "ليس لديك حساب؟",
     ),
+    "hirePathSubtitle": MessageLookupByLibrary.simpleMessage(
+      "إذا كنت صاحب عمل أو مقاولًا",
+    ),
+    "hirePathTitle": MessageLookupByLibrary.simpleMessage("أريد التوظيف"),
     "jobs": MessageLookupByLibrary.simpleMessage("الوظائف"),
+    "lastName": MessageLookupByLibrary.simpleMessage("اسم العائلة"),
     "login": MessageLookupByLibrary.simpleMessage("الدخول"),
     "loginScreenFooterTerms": MessageLookupByLibrary.simpleMessage(
       "بتسجيل دخولك، أنت توافق على WorkBridge’s",
@@ -74,10 +87,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginSubtitle": MessageLookupByLibrary.simpleMessage(
       "مرحباً بعودتك! سجل الدخول للوصول إلى وظائفك، والخدمات",
     ),
+    "makeSureInternetConnection": MessageLookupByLibrary.simpleMessage(
+      "تحقق من اتصالك بالإنترنت وحاول مرة أخرى",
+    ),
     "networkError": MessageLookupByLibrary.simpleMessage(
       "يرجى التحقق من الاتصال بالإنترنت",
     ),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "nextSignupStep": MessageLookupByLibrary.simpleMessage(
+      "التالي: أكمل بعض التفاصيل",
+    ),
     "notFoundRoute": MessageLookupByLibrary.simpleMessage(
       "يبدو أنك ضللت الطريق!",
     ),
@@ -102,7 +121,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "signup": MessageLookupByLibrary.simpleMessage("تسجيل"),
     "signupScreenFooterTerms": MessageLookupByLibrary.simpleMessage(
-      "بتسجيل دخولك، أنت توافق على WorkBridge’s",
+      "بتسجيلك، أنت توافق على WorkBridge’s",
     ),
     "signupSubtitle1": MessageLookupByLibrary.simpleMessage(
       "أدخل بياناتك لاكتشاف فرص العمل والوظائف في جميع أنحاء مصر.",
@@ -143,6 +162,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "step3": MessageLookupByLibrary.simpleMessage("البيانات الشخصية"),
     "termsOfService": MessageLookupByLibrary.simpleMessage("إتفاقية الإستخدام"),
     "welcomeUser": m1,
+    "whatWeCallYouSignup": MessageLookupByLibrary.simpleMessage(
+      "بماذا نناديك؟",
+    ),
+    "workPathSubtitle": MessageLookupByLibrary.simpleMessage(
+      "إذا كنت تبحث عن فرص عمل مرنة",
+    ),
+    "workPathTitle": MessageLookupByLibrary.simpleMessage("أريد العمل"),
     "yourEmail": MessageLookupByLibrary.simpleMessage("your@email.com"),
+    "yourFirstName": MessageLookupByLibrary.simpleMessage("اسمك الأول"),
+    "yourLastName": MessageLookupByLibrary.simpleMessage("اسم عائلتك"),
   };
 }

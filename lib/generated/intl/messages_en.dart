@@ -20,18 +20,20 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(int step, int finalStep) => "Step ${step} of ${finalStep}";
+  static String m0(step, finalStep) => "Step ${step} of ${finalStep}";
 
-  static String m1(String userName) => "Welcome back, ${userName}!";
+  static String m1(userName) => "Welcome back, ${userName}!";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "appName": MessageLookupByLibrary.simpleMessage("WorkBridge"),
     "appTitle": MessageLookupByLibrary.simpleMessage("WorkBridge Platform"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("Change language"),
+    "choosePath": MessageLookupByLibrary.simpleMessage("Choose your path"),
     "confirmPasswordField": MessageLookupByLibrary.simpleMessage(
       "Confirm password",
     ),
+    "continueKeyword": MessageLookupByLibrary.simpleMessage("Continue"),
     "continueLoginWithOptions": MessageLookupByLibrary.simpleMessage(
       "OR CONTINUE WITH",
     ),
@@ -48,15 +50,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterYourPassword": MessageLookupByLibrary.simpleMessage(
       "Enter your password",
     ),
+    "error": MessageLookupByLibrary.simpleMessage("Error"),
     "errorConfirmPasswordField": MessageLookupByLibrary.simpleMessage(
-      "Password must be correct",
+      "Password must be 8 length",
+    ),
+    "errorCouldNotConnect": MessageLookupByLibrary.simpleMessage(
+      "Error: Couldn\'t connect",
     ),
     "errorFieldIsEmpty": MessageLookupByLibrary.simpleMessage(
       "This field can\'t be empty",
     ),
+    "errorNameField": MessageLookupByLibrary.simpleMessage("Name is invalid"),
     "errorPhoneOrEmailField": MessageLookupByLibrary.simpleMessage(
       "Enter a valid phone number or email",
     ),
+    "firstName": MessageLookupByLibrary.simpleMessage("First name"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot password?"),
     "haveLoginAccount": MessageLookupByLibrary.simpleMessage(
       "Already Registered?",
@@ -64,7 +72,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "haveNoLoginAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
+    "hirePathSubtitle": MessageLookupByLibrary.simpleMessage(
+      "If you are a Business owner or a Contractor",
+    ),
+    "hirePathTitle": MessageLookupByLibrary.simpleMessage("I Want to Hire"),
     "jobs": MessageLookupByLibrary.simpleMessage("Jobs"),
+    "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
     "login": MessageLookupByLibrary.simpleMessage("Log in"),
     "loginScreenFooterTerms": MessageLookupByLibrary.simpleMessage(
       "By logging in, you agree to WorkBridge’s",
@@ -72,10 +85,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginSubtitle": MessageLookupByLibrary.simpleMessage(
       "Welcome back! Sign in to access your jobs, gigs, and services",
     ),
+    "makeSureInternetConnection": MessageLookupByLibrary.simpleMessage(
+      "Check your internet connection and try again",
+    ),
     "networkError": MessageLookupByLibrary.simpleMessage(
       "Please check your internet connection",
     ),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "nextSignupStep": MessageLookupByLibrary.simpleMessage(
+      "Next: Complete some details",
+    ),
     "notFoundRoute": MessageLookupByLibrary.simpleMessage(
       "Looks like you got lost!",
     ),
@@ -100,7 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "signup": MessageLookupByLibrary.simpleMessage("Sign up"),
     "signupScreenFooterTerms": MessageLookupByLibrary.simpleMessage(
-      "By signing in, you agree to WorkBridge’s",
+      "By signing up, you agree to WorkBridge’s",
     ),
     "signupSubtitle1": MessageLookupByLibrary.simpleMessage(
       "Enter your credentials to discover gigs and jobs across Egypt.",
@@ -143,6 +162,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "step3": MessageLookupByLibrary.simpleMessage("Personal Details"),
     "termsOfService": MessageLookupByLibrary.simpleMessage("Terms of Service"),
     "welcomeUser": m1,
+    "whatWeCallYouSignup": MessageLookupByLibrary.simpleMessage(
+      "What shall we call you?",
+    ),
+    "workPathSubtitle": MessageLookupByLibrary.simpleMessage(
+      "If you are seeking a flexible job opportunities",
+    ),
+    "workPathTitle": MessageLookupByLibrary.simpleMessage("I Want to Work"),
     "yourEmail": MessageLookupByLibrary.simpleMessage("your@email.com"),
+    "yourFirstName": MessageLookupByLibrary.simpleMessage("Your first name"),
+    "yourLastName": MessageLookupByLibrary.simpleMessage("Your last name"),
   };
 }

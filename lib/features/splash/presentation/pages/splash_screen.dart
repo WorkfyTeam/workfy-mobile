@@ -1,6 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:workbridge/core/utils/app_assets.dart';
-import 'package:workbridge/features/auth/presentation/pages/login_screen.dart';
+import 'package:workbridge/features/auth/presentation/pages/login/login_screen.dart';
 import 'package:workbridge/features/splash/presentation/widgets/loading_widget.dart';
 import 'package:workbridge/generated/l10n.dart';
 
@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> _initializeApp() async {
     // Step 1: Initialize local storage & app configurations
-    await Future.delayed(const Duration(minutes: 1));
+    await Future.delayed(const Duration(milliseconds: 500));
     if (!mounted) return;
     setState(() {
       _progress = 0.30;
@@ -50,7 +50,6 @@ class _SplashScreenState extends State<SplashScreen> {
     // Brief delay at 100% for smooth visual transition
     await Future.delayed(const Duration(milliseconds: 500));
     if (!mounted) return;
-
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
   }
 

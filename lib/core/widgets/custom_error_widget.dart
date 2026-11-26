@@ -1,51 +1,50 @@
 import 'package:material_ui/material_ui.dart';
+import 'package:workbridge/generated/l10n.dart';
 import 'app_button.dart';
 
 class CustomErrorWidget extends StatelessWidget {
   final String? title;
-  final String message;
+  final String? message;
   final VoidCallback? onRetry;
-  final String retryText;
+  final String? retryText;
   final IconData icon;
   final bool isCard;
   final bool isCompact;
   final Widget? secondaryAction;
+  final bool _isNetwork;
 
   const CustomErrorWidget({
     super.key,
     this.title,
-    required this.message,
+    this.message,
     this.onRetry,
-    this.retryText = 'إعادة المحاولة',
+    this.retryText,
     this.icon = Icons.error_outline_rounded,
     this.isCard = false,
     this.isCompact = false,
     this.secondaryAction,
-  });
+  }) : _isNetwork = false;
 
-  factory CustomErrorWidget.network({
-    Key? key,
-    String? title = 'تعذر الاتصال بالشبكة',
-    String message = 'يرجى التحقق من اتصالك بالإنترنت ثم إعادة المحاولة',
-    VoidCallback? onRetry,
-    String retryText = 'إعادة المحاولة',
-    bool isCard = false,
-  }) {
-    return CustomErrorWidget(
-      key: key,
-      title: title,
-      message: message,
-      onRetry: onRetry,
-      retryText: retryText,
-      icon: Icons.wifi_off_rounded,
-      isCard: isCard,
-    );
-  }
+  const CustomErrorWidget.network({
+    super.key,
+    this.title,
+    this.message,
+    this.onRetry,
+    this.retryText,
+    this.isCard = false,
+    this.isCompact = false,
+    this.secondaryAction,
+    this.icon = Icons.wifi_off_rounded,
+  }) : _isNetwork = true;
 
   @override
   Widget build(BuildContext context) {
+    final l10n = S.of(context);
     final colors = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
+
+    final effectiveMessage = message ?? (_isNetwork ? l10n.networkError : l10n.serverError);
+    final effectiveRetryText = retryText ?? l10n.retry;
 
     final content = Padding(
       padding: EdgeInsets.all(isCompact ? 16.0 : 24.0),
@@ -77,7 +76,7 @@ class CustomErrorWidget extends StatelessWidget {
             ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 320),
               child: Text(
-                message,
+                effectiveMessage,
                 textAlign: TextAlign.center,
                 style: textTheme.bodyMedium,
               ),
@@ -86,7 +85,7 @@ class CustomErrorWidget extends StatelessWidget {
               SizedBox(height: isCompact ? 16 : 24),
               if (onRetry != null)
                 AppButton.primary(
-                  text: retryText,
+                  text: effectiveRetryText,
                   leadingIcon: const Icon(Icons.refresh_rounded, size: 18),
                   onPressed: onRetry,
                   width: isCompact ? double.infinity : 170,

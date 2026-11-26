@@ -3,7 +3,7 @@ import 'package:workbridge/core/errors/failures.dart';
 import 'package:workbridge/features/auth/domain/entities/user_entity.dart';
 
 abstract class AuthRepository {
+  Future<Either<Failure, UserEntity>> register(String firstName, String lastName, String email, String password, String role);
   Future<Either<Failure, UserEntity>> login(String email, String password);
-  Future<Either<Failure, UserEntity>> register(String name, String email, String password, String role);
   Future<Either<Failure, void>> logout();
 }

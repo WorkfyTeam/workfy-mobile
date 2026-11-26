@@ -1,10 +1,16 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
+import 'package:workbridge/core/constants/api_constants.dart';
+import 'package:workbridge/core/errors/exceptions.dart';
+import 'package:workbridge/core/network/dio_client.dart';
+import 'package:workbridge/core/routing/app_router.dart';
 import 'package:workbridge/core/utils/app_assets.dart';
+import 'package:workbridge/core/utils/secure_storage_service.dart';
 import 'package:workbridge/core/widgets/app_button.dart';
 import 'package:workbridge/core/widgets/app_text_field.dart';
-import 'package:workbridge/features/home/presentation/pages/home_screen.dart';
+import 'package:workbridge/core/widgets/custom_error_widget.dart';
 import 'package:workbridge/generated/l10n.dart';
+import 'package:workbridge/injection_container.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -46,15 +52,37 @@ class _LoginScreenState extends State<LoginScreen> {
     });
 
     try {
-      // TODO: Replace with AuthBloc / AuthRepository login call
-      await Future.delayed(const Duration(seconds: 1));
+      final email = _phoneOrEmailController.text.trim();
+      final password = _passwordController.text.trim();
+
+      // Make POST request via DioClient
+      final dioClient = sl<DioClient>();
+      final secureStorage = sl<SecureStorageService>();
+
+      final response = await dioClient.post(ApiConstants.login, data: {'email': email, 'password': password});
+
+      // Handle 200 Response
+      final data = response.data as Map<String, dynamic>;
+      final accessToken = data['accessToken'] as String?;
+      final sessionExpiration = data['expiresIn'] as int?;
+
+      if (accessToken != null) {
+        await secureStorage.saveToken(accessToken);
+      }
+
+      if (sessionExpiration != null && _rememberValue == true) {
+        await secureStorage.saveToken(sessionExpiration.toString());
+      }
 
       if (!mounted) return;
 
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+      context.go(AppRoutes.home);
+    } on ServerException catch (e) {
+      if (!mounted) return;
+      _showErrorDialog(e.message ?? S.of(context).serverError);
     } catch (e) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+      _showErrorDialog(e.toString());
     } finally {
       if (mounted) {
         setState(() {
@@ -62,6 +90,24 @@ class _LoginScreenState extends State<LoginScreen> {
         });
       }
     }
+  }
+
+  void _showErrorDialog(String errorMessage) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+      builder: (context) => Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: CustomErrorWidget(
+          title: S.of(context).error,
+          message: errorMessage,
+          onRetry: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+    );
   }
 
   String? _validatePhoneOrEmail(String? value, S l10n) {
@@ -190,7 +236,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           const SizedBox(width: 4),
                           TextButton(
                             style: TextButton.styleFrom(padding: EdgeInsets.zero, minimumSize: Size.zero, tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-                            onPressed: () => context.push("/signup"),
+                            onPressed: () => context.push(AppRoutes.signup),
                             child: Text(
                               l10n.signup,
                               style: textTheme.bodyMedium?.copyWith(color: colors.primary, fontWeight: FontWeight.bold),
