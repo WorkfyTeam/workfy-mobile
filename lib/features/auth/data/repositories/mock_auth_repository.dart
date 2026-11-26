@@ -11,14 +11,14 @@ class MockAuthRepository implements AuthRepository {
     if (email == 'error@workbridge.eg') {
       return const Left(ServerFailure('Credentials Are Not Correct'));
     }
-    const user = UserModel(id: 'usr_101', name: 'Youssef Ahmed', email: 'youssef.ahmed5002@gmail.com', role: 'JOB_SEEKER');
+    const user = UserModel(id: 'usr_101', firstName: 'Youssef', lastName: 'Ahmed', email: 'youssef.ahmed5002@gmail.com', role: 'job_seeker');
     return const Right(user);
   }
 
   @override
-  Future<Either<Failure, UserEntity>> register(String name, String email, String password, String role) async {
+  Future<Either<Failure, UserEntity>> register(String firstName, String lastName, String email, String password, String role) async {
     await Future.delayed(const Duration(seconds: 1));
-    final user = UserModel(id: 'usr_${DateTime.now().millisecondsSinceEpoch}', name: name, email: email, role: role);
+    final user = UserModel(id: 'usr_${DateTime.now().millisecondsSinceEpoch}', firstName: firstName, lastName: lastName, email: email, role: role);
     return Right(user);
   }
 

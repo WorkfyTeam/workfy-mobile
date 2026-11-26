@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import 'intl/messages_all.dart';
@@ -250,10 +250,10 @@ class S {
     );
   }
 
-  /// `Password must be correct`
+  /// `Password must be 8 length`
   String get errorConfirmPasswordField {
     return Intl.message(
-      'Password must be correct',
+      'Password must be 8 length',
       name: 'errorConfirmPasswordField',
       desc: '',
       args: [],
@@ -355,10 +355,10 @@ class S {
     );
   }
 
-  /// `By signing in, you agree to WorkBridge’s`
+  /// `By signing up, you agree to WorkBridge’s`
   String get signupScreenFooterTerms {
     return Intl.message(
-      'By signing in, you agree to WorkBridge’s',
+      'By signing up, you agree to WorkBridge’s',
       name: 'signupScreenFooterTerms',
       desc: '',
       args: [],
@@ -560,6 +560,151 @@ class S {
     return Intl.message(
       'Provide your company details to post jobs, discover Egyptian talent, and manage hiring across all governorates.',
       name: 'signupSubtitle3BusinessProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose your path`
+  String get choosePath {
+    return Intl.message(
+      'Choose your path',
+      name: 'choosePath',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I Want to Work`
+  String get workPathTitle {
+    return Intl.message(
+      'I Want to Work',
+      name: 'workPathTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If you are seeking a flexible job opportunities`
+  String get workPathSubtitle {
+    return Intl.message(
+      'If you are seeking a flexible job opportunities',
+      name: 'workPathSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I Want to Hire`
+  String get hirePathTitle {
+    return Intl.message(
+      'I Want to Hire',
+      name: 'hirePathTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `If you are a Business owner or a Contractor`
+  String get hirePathSubtitle {
+    return Intl.message(
+      'If you are a Business owner or a Contractor',
+      name: 'hirePathSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get continueKeyword {
+    return Intl.message(
+      'Continue',
+      name: 'continueKeyword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `First name`
+  String get firstName {
+    return Intl.message('First name', name: 'firstName', desc: '', args: []);
+  }
+
+  /// `Your first name`
+  String get yourFirstName {
+    return Intl.message(
+      'Your first name',
+      name: 'yourFirstName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last name`
+  String get lastName {
+    return Intl.message('Last name', name: 'lastName', desc: '', args: []);
+  }
+
+  /// `Your last name`
+  String get yourLastName {
+    return Intl.message(
+      'Your last name',
+      name: 'yourLastName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name is invalid`
+  String get errorNameField {
+    return Intl.message(
+      'Name is invalid',
+      name: 'errorNameField',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next: Complete some details`
+  String get nextSignupStep {
+    return Intl.message(
+      'Next: Complete some details',
+      name: 'nextSignupStep',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error: Couldn't connect`
+  String get errorCouldNotConnect {
+    return Intl.message(
+      'Error: Couldn\'t connect',
+      name: 'errorCouldNotConnect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check your internet connection and try again`
+  String get makeSureInternetConnection {
+    return Intl.message(
+      'Check your internet connection and try again',
+      name: 'makeSureInternetConnection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get error {
+    return Intl.message('Error', name: 'error', desc: '', args: []);
+  }
+
+  /// `What shall we call you?`
+  String get whatWeCallYouSignup {
+    return Intl.message(
+      'What shall we call you?',
+      name: 'whatWeCallYouSignup',
       desc: '',
       args: [],
     );

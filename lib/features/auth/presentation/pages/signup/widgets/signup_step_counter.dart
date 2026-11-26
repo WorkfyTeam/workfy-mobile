@@ -3,10 +3,11 @@ import 'package:workbridge/core/theme/theme_extension.dart';
 import 'package:workbridge/generated/l10n.dart';
 
 class SignupStepCounter extends StatelessWidget {
+  final bool showBadgeCounter;
   final int step;
-  final String stepName;
+  final String? stepName;
 
-  const SignupStepCounter({super.key, required this.step, required this.stepName});
+  const SignupStepCounter({super.key, this.showBadgeCounter = false, required this.step, this.stepName});
 
   static const int _totalSteps = 3;
 
@@ -22,15 +23,17 @@ class SignupStepCounter extends StatelessWidget {
       children: [
         Row(
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 8),
-              decoration: BoxDecoration(color: palette.activeFilterBackground, borderRadius: BorderRadius.circular(100)),
-              child: Text(l10n.step(step + 1, _totalSteps), style: textTheme.labelMedium?.copyWith(color: colors.onPrimaryContainer)),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Text(stepName, style: textTheme.labelLarge, overflow: TextOverflow.ellipsis),
-            ),
+            if (showBadgeCounter)
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 8),
+                decoration: BoxDecoration(color: palette.activeFilterBackground, borderRadius: BorderRadius.circular(100)),
+                child: Text(l10n.step(step + 1, _totalSteps), style: textTheme.labelMedium?.copyWith(color: colors.onPrimaryContainer)),
+              ),
+            if (stepName != null) const SizedBox(width: 12),
+            if (stepName != null)
+              Expanded(
+                child: Text(stepName!, style: textTheme.labelLarge, overflow: TextOverflow.ellipsis),
+              ),
           ],
         ),
         const SizedBox(height: 10),
